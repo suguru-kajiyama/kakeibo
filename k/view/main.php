@@ -55,8 +55,8 @@
           <div class="kobetu">
             <h2>日毎</h2>
             <h3><span class="year"></span>年<span class="month"></span>月<span class="day"></span>日</h3>
-            <form class="" action="registBalance.php" method="post">
-              <input type="hidden" name="" value="">
+            <form class="" action="../controller/registBalance.php" method="post">
+              <input type="text" name="date" value="20190619">
               <?php
               require("../model/category.php");
               $r = returnUserCategory();
