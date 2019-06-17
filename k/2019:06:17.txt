@@ -1,0 +1,3 @@
+idカラム
+balance name->id
+function -> クラスか

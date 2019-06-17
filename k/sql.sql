@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:8889
--- Generation Time: Jun 17, 2019 at 05:39 AM
+-- Generation Time: Jun 17, 2019 at 08:42 AM
 -- Server version: 5.7.23
 -- PHP Version: 7.2.10
 
@@ -21,20 +21,13 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `balance` (
-  `category_name` varchar(128) DEFAULT NULL,
+  `id` int(11) NOT NULL,
   `user_id` int(11) DEFAULT NULL,
   `balance_date` date DEFAULT NULL,
   `in_out` int(11) DEFAULT NULL,
   `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `money` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
---
--- Dumping data for table `balance`
---
-
-INSERT INTO `balance` (`category_name`, `user_id`, `balance_date`, `in_out`, `created_at`, `money`) VALUES
-('ぱち', 1, '2019-05-01', 1, '2019-05-27 08:14:46', 10000);
 
 -- --------------------------------------------------------
 
@@ -91,6 +84,12 @@ INSERT INTO `USERS` (`user_id`, `user_name`, `created_at`, `logined_at`, `passwo
 --
 
 --
+-- Indexes for table `balance`
+--
+ALTER TABLE `balance`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `category`
 --
 ALTER TABLE `category`
@@ -105,6 +104,12 @@ ALTER TABLE `USERS`
 --
 -- AUTO_INCREMENT for dumped tables
 --
+
+--
+-- AUTO_INCREMENT for table `balance`
+--
+ALTER TABLE `balance`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `category`
