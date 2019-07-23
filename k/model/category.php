@@ -14,7 +14,7 @@
     if(session_status() == PHP_SESSION_NONE){
       session_start();
     }
-    $user_id = $_SESSION['user_id'];
+    $user_id = $_SESSION["user_id"];
     require("ConectDatabase.php");
 
     $sql = "INSERT INTO category (category_name,user_id) VALUES('{$categoryName}',{$user_id})";
@@ -25,7 +25,7 @@
   function removeCategory($categoryName){
     if(session_status() == PHP_SESSION_NONE){
       session_start();
-    }  
+    }
     $user_id = $_SESSION['user_id'];
     require("ConectDatabase.php");
 
@@ -33,5 +33,10 @@
     $stmt = $pdo -> prepare($sql);
     $stmt -> execute();
     $pdo = null;
+  }function addCategoryAtFirst($id){
+    addCategory("雑貨");
+    if(session_status() == PHP_SESSION_NONE){
+      session_start();
+    }$_SESSION["user_id"] = $id;
   }
 ?>

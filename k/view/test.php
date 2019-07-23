@@ -1,7 +1,5 @@
 <?php
-  require("../model/balance.php");
-  $a = returnBalance("20190617");
-  foreach($a as $b){
-    echo $a['money']."<br>";
-  }
+  require_once("../controller/showB.php");
+  $a = new showB();
+  $a -> showIndiBalance(2019,07,19);
  ?>
