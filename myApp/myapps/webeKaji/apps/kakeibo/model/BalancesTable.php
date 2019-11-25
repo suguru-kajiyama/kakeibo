@@ -9,8 +9,9 @@ class BalancesTable extends Table{
     try {
       $stmt = $this -> pdo -> prepare($sql);
       $stmt -> execute();
+      return true;
     } catch (PDOException $e) {
-
+        return false;
     }
   }
   //登録の削除

@@ -8,16 +8,16 @@
   class Validate{
     //htmlタグにならないか
     public static function htmlcheck($t){
-      return　true;
+      return isset($t);
     }//sqlチェック
     public static function sqlcheck($t){
-      return true;
+      return isset($t);
     }//数値担っているか
     public static function numbercheck($t){
-      return true;
+      return isset($t);
     }//date yyyymmdd系になっているか
     public static function datecheck($t){
-      return true;
+      return isset($t);
     }
   }
  ?>
