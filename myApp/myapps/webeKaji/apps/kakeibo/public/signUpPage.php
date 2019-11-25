@@ -1,5 +1,5 @@
 <?php
-
+  require_once(__DIR__."/../controller/route.php");
  ?>
  <!DOCTYPE html>
  <html lang="en" dir="ltr">
@@ -9,15 +9,15 @@
    </head>
    <body>
      <h1>新規登録</h1>
-     <form class="" action="controller/root.php" method="post">
+     <form class="" action="" method="post">
        <p>ユーザー名<input type="text" name="user_name" value=""></p>
-       <p>パスワード<input type="text" name="password" value=""></p>
+       <p>パスワード<input type="password" name="password" value=""></p>
        <input type="submit" name="signup" value="登録する">
        <input type="submit" name="back" value="戻る">
        <?php
-        if($_GET["code"]==1){
-          echo "名前の重複か入力が不正です";
-        }
+       if(isset($e)){
+         echo $e -> getErrorMessage();
+       }
         ?>
      </form>
    </body>

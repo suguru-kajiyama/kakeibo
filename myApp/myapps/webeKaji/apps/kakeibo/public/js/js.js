@@ -36,7 +36,7 @@ var Calender = {
       if(i<10){
         dd=`0${i}`;
       }
-    	let temp = `<div class="cell" id="day_${y}-${mm}-${dd}">`+
+    	let temp = `<div class="cell" id="day_${y}-${mm}-${dd}" data-date="${y}-${mm}-${dd}">`+
    						`<h5 class="d">${i}</h5>`+
               `<p class="in mon">0</p>`+
               `<p class="out mon">0</p>`+
@@ -59,7 +59,6 @@ var Calender = {
     }else if(inOut == -1){
       $(`#day_${date}`).find(".out").text(money + out_money);
     }
-    console.log($(`#day_${date}`).find(".in").text());
     $(`#day_${date}`).find(".total").text(in_money-out_money + inOut*money);
   },//1日の収支
   //main
@@ -77,7 +76,7 @@ function event() {
       y--;
     }
     Calender.main();
-    get_month("controller/balance.php",y,m);
+    get_month("../controller/balance.php",y,m);
   	//Calender.set_in_out_total(arr[0],arr[1],arr[2]);
   });
   $("#next").on("click", function() {
@@ -93,7 +92,7 @@ function event() {
   $("#cal").on("click",".cell",function(){
     let dd = $(this).find(".d").text();
     get_day("view/daily_balance.php",y,m,dd);
-    console.log($(this).find(".in").text());
+    //console.log($(this).find(".in").text());
     /*for(let i=0;i<ar.length;i++){
       Calender.set_in_out_money(ar[0],ar[1],ar[2]);
     }*/
@@ -101,12 +100,19 @@ function event() {
   $("#sub").on("click",function(){
     console.log("push");
   })
+  $("#cal").on("click",".cell",function(){
+    var val = ($(this).data("date"));
+    console.log(val);
+    console.log( $("#hoge").val());
+    $("#hoge").val(val);
+  })
 }
 $(function() {
   Calender.main();
-  get_month("controller/balance.php",y,m);
+  get_month("../controller/balance.php",y,m);
   get_day("view/daily_balance.php",y,m,d);
   event();
+  $("#hoge").val(`${y}-${m}-${d}`);
   //var arr= ajax.get_balance(y,m);
 })
 //

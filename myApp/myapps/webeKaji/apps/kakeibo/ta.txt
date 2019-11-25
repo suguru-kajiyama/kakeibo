@@ -1,0 +1,9 @@
+balance.php dates -> datas
+mypage -> userid hidden
+          登録したカテゴリー名編集
+
+index.php など public　　
+code　　　　　view インスタンス
+画面表示
+POST
+コントローの方にエラーを

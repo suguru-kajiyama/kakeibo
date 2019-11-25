@@ -13,7 +13,7 @@
   if(isset($_POST["d"])){
     $d = $_POST["d"];
   }
-    require("../model/database.php");
+    require(__DIR__."/../../model/BalancesTable.php");
     $r = new  BalancesTable();
     session_start();
     $ui = $_SESSION['userId'];

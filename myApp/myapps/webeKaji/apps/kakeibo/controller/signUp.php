@@ -1,5 +1,5 @@
 <?php
-  require_once("../model/database.php");
+  require_once("../model/UsersTable.php");
   class signUp{
     //signupの時の処理
     public function main($n,$p){
@@ -15,9 +15,12 @@
       }
     }private function userSignUp($n,$p){
       $db = new UsersTable();
+      //パスワードハッシュ化
+      $p = password_hash($p,PASSWORD_DEFAULT);
       $db -> setUser($n,$p);
     }private function userExist($n){
       $db = new UsersTable();
+      //名前の重複チェックしている
       return $db -> getUser($n);
     }
   }

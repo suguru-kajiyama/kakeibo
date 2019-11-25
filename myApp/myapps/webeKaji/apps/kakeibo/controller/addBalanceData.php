@@ -4,9 +4,13 @@
     public function add($d,$m,$io,$ci){
       session_start();
       $ui = $_SESSION['userId'];
-      require_once(__Dir__."/../model/database.php");
+      require_once(__Dir__."/../model/BalancesTable.php");
       $bt = new BalancesTable();
-      $bt -> setBalance($ui,$ci,$io,$m,$d);
+      if($bt -> setBalance($ui,$ci,$io,$m,$d) ){
+          return true;
+      }else{
+        return false;
+      }
     }
   }
  ?>

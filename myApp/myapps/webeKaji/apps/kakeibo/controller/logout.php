@@ -1,5 +1,5 @@
 <?php
-  require_once("../model/database.php");
+  //require_once("../model/database.php");
   class Logout{
     //session userIdを消す
     public function main(){

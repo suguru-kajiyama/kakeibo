@@ -1,5 +1,5 @@
 <?php
-  require_once(__DIR__."../../controller/category.php");
+  require_once(__DIR__."/../../controller/category.php");
   class displayCategory{
     public function displayRadio($i){
       $t = new category();

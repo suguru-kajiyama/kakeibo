@@ -8,7 +8,7 @@
   <head>
     <meta charset="utf-8">
     <title></title>
-    <link href="public/css/master.css"rel="stylesheet" type="text/css" media="all"/>
+    <link href="css/master.css"rel="stylesheet" type="text/css" media="all"/>
     <style media="screen">
     .header{
       width: 100%;
@@ -39,16 +39,16 @@ line-height:0px;
   width: 40%;
 }
     </style>
-    <script src="public/js/jquery.3.3.31.js"></script>
-  <script type="text/javascript"src="public/js/balance.js"></script>
-  <script type="text/javascript"src="public/js/js.js"></script>
+    <script src="js/jquery.3.3.31.js"></script>
+  <script type="text/javascript"src="js/balance.js"></script>
+  <script type="text/javascript"src="js/js.js"></script>
   </head>
 
   <body>
     <!-- ヘッダー-->
     <div class="header">
       <h1>収支表</h1>
-      <a href="controller/root.php?logout=1">ログアウト</a>
+      <a href="../controller/route.php?logout=1">ログアウト</a>
       <a href="myPage.php">カテゴリー編集へ</a>
     </div>
     <!-- メインコンテンツ-->
@@ -73,21 +73,24 @@ line-height:0px;
       </div><br>
       <!--登録フォーム-->
       <div class="input_form">
-        <form class=""action="controller/root.php" method="post">
+        <form class=""action="" method="post">
           <?php
             require(__Dir__."/view/displayCategory.php");
-
             $c = new displayCategory();
             $c -> displayRadio($_SESSION["userId"]);
-
           ?>
 
-        <input type="date" name="date"><br>
+        <input type="date" id="hoge" name="date"><br>
         <input type="text" name="money"value="0">円<br>
         <input type="radio" name ='inout'value="-1"checked='checked'>支出<br>
         <input type="radio" name ='inout'value="1">収入<br>
         <input type="submit"name="inputBalance"value="登録する"><br>
         </form>
+        <?php
+        if(isset($e)){
+          echo $e -> getErrorMessage();
+        }
+         ?>
       </div>
     </div>
     <!--フッター--->
