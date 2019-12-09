@@ -11,6 +11,8 @@ class BalancesTable extends Table{
       $stmt -> execute();
       return true;
     } catch (PDOException $e) {
+        $dbError = new MyError();
+        $dbError -> setErrorMessage("データベースへの接続ができません");
         return false;
     }
   }

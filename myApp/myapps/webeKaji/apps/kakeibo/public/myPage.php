@@ -1,9 +1,12 @@
 <?php
-  session_start();
+
   if(!isset($_SESSION['userId']) ){
-    header("Location:index.php");
+    session_start();
+      if(!isset($_SESSION['userid'])){
+        //header("Location:index.php");
+      }
   }
-  require(__DIR__."/../controller/route.php");
+  require_once(__DIR__."/../controller/route.php");
   require_once(__DIR__."/view/displayCategory.php");
  ?>
  <!DOCTYPE html>
@@ -17,7 +20,7 @@
        <h1>カテゴリー編集</h1>
      </div>
      <div class="categories">
-       <form class="" name='category' action="" method="post">
+       <form class=""action="" method="post">
        <?php
           $dis = new displayCategory();
           $dis -> displayRadio($_SESSION['userId']);
@@ -30,8 +33,10 @@
 
      <a href="mainContents.php">戻る</a>
      <?php
-     if(isset($e)){
-       echo $e -> getErrorMessage();
+     if(isset($inputError)){
+       echo $inputError -> getErrorMessage();
+     }if(isset($nameExistError)){
+       echo $nameExistError -> getErrorMessage();
      }
       ?>
    </body>

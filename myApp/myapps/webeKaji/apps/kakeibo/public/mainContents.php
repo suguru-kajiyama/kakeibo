@@ -1,7 +1,9 @@
 <?php
   $y = date("Y");
   $m = date("m");
+  require_once(__DIR__."/../controller/route.php");
   session_start();
+  echo $_SESSION['userId'];
  ?>
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
@@ -48,8 +50,10 @@ line-height:0px;
     <!-- ヘッダー-->
     <div class="header">
       <h1>収支表</h1>
-      <a href="../controller/route.php?logout=1">ログアウト</a>
-      <a href="myPage.php">カテゴリー編集へ</a>
+      <form action=""method="post">
+        <input type="submit"name="Logout"value="ログアウト">
+        <input type="submit"name="myPage"value="マイページ">
+      </form>
     </div>
     <!-- メインコンテンツ-->
     <div class="container">
@@ -84,11 +88,11 @@ line-height:0px;
         <input type="text" name="money"value="0">円<br>
         <input type="radio" name ='inout'value="-1"checked='checked'>支出<br>
         <input type="radio" name ='inout'value="1">収入<br>
-        <input type="submit"name="inputBalance"value="登録する"><br>
+        <input type="submit"id="addBalance"name="inputBalance"value="登録する"disabled><br>
         </form>
         <?php
-        if(isset($e)){
-          echo $e -> getErrorMessage();
+        if(isset($inputError)){
+          echo $inputError -> getErrorMessage();
         }
          ?>
       </div>

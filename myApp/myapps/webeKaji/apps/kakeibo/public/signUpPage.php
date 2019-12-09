@@ -15,9 +15,12 @@
        <input type="submit" name="signup" value="登録する">
        <input type="submit" name="back" value="戻る">
        <?php
-       if(isset($e)){
-         echo $e -> getErrorMessage();
+       if(isset($inputError)){
+         echo $inputError -> getErrorMessage();
+       }if(isset($nameExistError)){
+         echo $nameExistError -> getErrorMessage();
        }
+
         ?>
      </form>
    </body>

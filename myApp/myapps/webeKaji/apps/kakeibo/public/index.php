@@ -1,6 +1,6 @@
 <?php
   require_once(__DIR__."/../controller/route.php");
-  require_once(__DIR__."/../error/Myerror.php");
+  //require_once(__DIR__."/../error/Myerror.php");
  ?>
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
@@ -18,8 +18,10 @@
         <input type="submit" name="signUpPage" value="新規作成">
       </form>
       <?php
-      if(isset($e)){
-        echo $e -> getErrorMessage();
+      if(isset($inputError)){
+        echo $inputError -> getErrorMessage();
+      }if(isset($resultError)){
+        echo $resultError -> getErrorMessage();
       }
        ?>
     </div>

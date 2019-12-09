@@ -9,8 +9,11 @@ class CategoriesTable extends Table{
     try{
       $stmt = $this -> pdo -> prepare($sql);
       $stmt -> execute();
+      return true;
     }catch(PDOException $e){
-      echo $e -> getMessage();
+      $dbError = new MyError();
+      $dbError -> setErrorMessage("データベースへの接続ができません");
+      return false;
     }
 
     //return $stmt -> fetchAll(PDO::FETCH_ASSOC);
@@ -22,7 +25,8 @@ class CategoriesTable extends Table{
       $stmt = $this -> pdo -> prepare($sql);
       $stmt -> execute();
     }catch(PDOException $e){
-      echo $e;
+      $dbError = new MyError();
+      $dbError -> setErrorMessage("データベースへの接続ができません");
     }
   }
   //変更
@@ -30,10 +34,16 @@ class CategoriesTable extends Table{
   //カテゴリー名を返す
   public function getCategories($i){
     $sql = "SELECT * FROM category WHERE(user_id='{$i}') AND deleteFlag = 0";
-    $stmt = $this -> pdo -> prepare($sql);
-    $stmt -> execute();
-    $rec = $stmt -> fetchAll(PDO::FETCH_ASSOC);
-    return $rec;
+    try{
+      $stmt = $this -> pdo -> prepare($sql);
+      $stmt -> execute();
+      $rec = $stmt -> fetchAll(PDO::FETCH_ASSOC);
+      return $rec;
+    }catch(PDOException $e){
+      $dbError = new MyError();
+      $dbError -> setErrorMessage("データベースへの接続ができません");
+      return false;
+    }
   }
 }
  ?>

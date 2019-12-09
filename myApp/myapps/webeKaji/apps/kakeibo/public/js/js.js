@@ -113,6 +113,11 @@ $(function() {
   get_day("view/daily_balance.php",y,m,d);
   event();
   $("#hoge").val(`${y}-${m}-${d}`);
+  if($("input[name=category_id]:eq(0)").prop("checked")){
+    $("#addBalance").prop("disabled",false);
+  }else{
+    alert("登録ありがとうございます 先にマイページからカテゴリー名を登録してください");
+  }
   //var arr= ajax.get_balance(y,m);
 })
 //

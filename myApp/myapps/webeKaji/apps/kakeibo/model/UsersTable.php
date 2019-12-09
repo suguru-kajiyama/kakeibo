@@ -12,8 +12,15 @@ class UsersTable extends Table{
   }//新規登録用
   public function setUser($u,$p){
     $sql = "INSERT INTO USERS(user_name,password) VALUES ('{$u}','{$p}')";
-    $stmt = $this -> pdo -> prepare($sql);
-    $stmt -> execute();
+    try{
+      $stmt = $this -> pdo -> prepare($sql);
+      $stmt -> execute();
+      return true;
+    }catch(PDOException $e){
+      $dbError = new MyError();
+      $dbError -> setErrorMessage("データベースへの接続ができません");
+      return false;
+    }
   }
 }
  ?>

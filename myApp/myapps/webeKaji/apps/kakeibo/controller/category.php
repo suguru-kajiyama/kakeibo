@@ -1,6 +1,7 @@
 <?php
 //カテゴリーの登録編集表示
   require_once(__DIR__."/../model/CategoriesTable.php");
+  
   class category{
     public function set($i,$category_name){
       $db = new categoriesTable();

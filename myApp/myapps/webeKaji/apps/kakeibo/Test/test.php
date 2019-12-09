@@ -9,10 +9,7 @@
 
     </script>
     <script type="text/javascript">
-      $(function(){
-        get_month("../controller/balance.php",2019,7);
-      })
-    </script>
+
     <title></title>
   </head>
   <body>
