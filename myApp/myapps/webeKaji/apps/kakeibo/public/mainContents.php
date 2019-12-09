@@ -3,7 +3,6 @@
   $m = date("m");
   require_once(__DIR__."/../controller/route.php");
   session_start();
-  echo $_SESSION['userId'];
  ?>
 <!DOCTYPE html>
 <html lang="en" dir="ltr">

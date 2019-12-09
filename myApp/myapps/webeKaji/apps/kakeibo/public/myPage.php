@@ -27,7 +27,7 @@
         ?>
       </br>
         <input type="text" name="newCategory" value="">
-        <input type="text" name="userId" value=<?php echo($_SESSION['userId']); ?>>
+        <input type="hidden" name="userId" value=<?php echo($_SESSION['userId']); ?>>
         <input type="submit" name="addCategory"value='add'>
         <input type="submit" name="removeCategory" value='remove'>
 

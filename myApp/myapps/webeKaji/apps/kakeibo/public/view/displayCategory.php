@@ -12,7 +12,8 @@
         }
         $i++;
         echo "<input type='radio' name='category_id' value='{$r['category_id']}'{$txt}>";
-        echo "{$r['category_name']}<br>";
+        $category_name = htmlspecialchars($r['category_name']);
+        echo "{$category_name}<br>";
       }
     }
   }

@@ -30,7 +30,16 @@ class CategoriesTable extends Table{
     }
   }
   //変更
-  public function changeCategory(){}
+  public function changeCategory($key,$val,$id){
+    $sql = "UPDATE category set {$key} = {$val} WHERE category_id = {$id}";
+    try{
+      $stmt = $this -> pdo -> prepare($sql);
+      $stmt -> execute();
+    }catch(PDOException $e){
+      $dbError = new MyError();
+      $dbError -> setErrorMessage("データベースへの接続ができません");
+    }
+  }
   //カテゴリー名を返す
   public function getCategories($i){
     $sql = "SELECT * FROM category WHERE(user_id='{$i}') AND deleteFlag = 0";
