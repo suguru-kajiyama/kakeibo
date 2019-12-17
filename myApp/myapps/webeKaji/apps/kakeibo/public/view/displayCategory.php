@@ -10,7 +10,6 @@
         if($i++==0){
           $txt="checked";
         }
-        $i++;
         echo "<input type='radio' name='category_id' value='{$r['category_id']}'{$txt}>";
         $category_name = htmlspecialchars($r['category_name']);
         echo "{$category_name}<br>";

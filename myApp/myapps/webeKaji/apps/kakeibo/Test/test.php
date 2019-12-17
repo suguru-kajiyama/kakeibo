@@ -9,19 +9,16 @@
 
     </script>
     <script type="text/javascript">
-      $(function(){$(".cell").on("hover",function(){
-        var txt = $(this).data(rgb);
-        $("#io").val(txt);
-      })})</script>
+      </script>
     <title></title>
     <style>
       .cell{
-        width:4px;
-        height:4px;
+        width:2px;
+        height:2px;
         float:left;
       }#cam{
-        width:512px;
-        height:512px;
+        width:1080px;
+        height:1080px;
         float:left;
       }
     </style>
@@ -36,7 +33,7 @@
             $ac = 16*$a+15;
             $bc = 16*$b+15;
             $cc = 16*$c+15;
-            $d = "<div class='cell'style='background-color:rgb({$ac},{$bc},{$cc})data-rgb='({$ac},{$bc},{$cc})'></div>";
+            $d = "<div class='cell'style='background-color:rgb({$ac},{$bc},{$cc}'></div>";
             echo $d;
           }
         }

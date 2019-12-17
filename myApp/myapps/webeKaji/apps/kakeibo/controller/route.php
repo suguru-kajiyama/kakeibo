@@ -96,10 +96,9 @@
     $io = $_POST['inout'];
     $ci = $_POST['category_id'];
     $ab = new addBalanceData();
-    if(Validate::numberCheck($m) && Validate::datecheck($d) && Validate::numberCheck($ci)){
+    if(Validate::numberCheck($m) && Validate::datecheck($d) ){
       if($ab -> add($d,$m,$io,$ci) ){
         //require_once("../public/mainContents.php");
-        exit;
       }
     }
     else{

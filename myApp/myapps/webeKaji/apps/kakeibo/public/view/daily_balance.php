@@ -18,7 +18,7 @@
     session_start();
     $ui = $_SESSION['userId'];
     $rec = $r -> getOneDayBalances($ui,$y,$m,$d);
-    $datas = "<h5>{$y}年{$m}月{$d}日</h5>";
+    $datas = "<h3>{$y}年{$m}月{$d}日</h3>";
     foreach($rec as $a){
       $io = "支出";
       if($a['in_out'] == 1){$io = "収入";}

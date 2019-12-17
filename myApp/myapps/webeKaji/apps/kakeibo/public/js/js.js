@@ -28,7 +28,9 @@ var Calender = {
     $("#cal_cell").html(dom);
     //ダミー
     let s = firdate.getDay();
+    let total_dom = 0;
     for(let i=0;i<s;i++){
+      total_dom++;
     	$(`#day_${i}`).append("<div class='cell dummy'></div>");
     }//
     for(let i=1;i<=lastdate.getDate();i++){
@@ -44,8 +46,14 @@ var Calender = {
               `</div>`;
     	$(`#day_${s%7}`).append(temp);
       (s=(s+1)%7);
-    }for(let i=s;i<7;i++){
-      $(`#day_${i}`).append("<div class='cell dummy'></div>");
+      total_dom++;
+    }while(total_dom < 7 * 6){ //レイアウトが崩れないように6*7マスは必ず出す
+      for(let i=s;i<7;i++){
+        total_dom ++;
+        $(`#day_${i}`).append("<div class='cell dummy'></div>");
+        s = (s+1)%7;
+        if(s%7==0){break;}
+      }
     }
 
   },
